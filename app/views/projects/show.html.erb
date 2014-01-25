@@ -1,0 +1,83 @@
+<%- model_class = Project -%>
+<div class="modal-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal for-overflow">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @project.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%=  @project.description %></dd>
+</dl>
+
+
+<h5><%= @project.name %> >> Tasks:</h5>
+
+<%  unless @tasks.blank?%>
+    <H4>Tasks</H4>
+
+    <table>
+      <% @tasks.each do |task| %>
+          <tr>
+            <th><%= task.title %></th>
+            <td><%= link_to task.title, project_task_path(@project, task) %></td>
+            <td>Assigned to: <%= task.developer.email if task.developer.present? %></td>
+            <td><%= link_to 'Show', project_task_path(@project, task) %></td>
+            <td><%= link_to 'Edit', edit_project_task_path(@project, task) %></td>
+          </tr>
+      <% end %>
+      <tr>
+        <td>
+          <hr>
+          <hr>
+        </td>
+      </tr>
+    </table>
+<% end %>
+
+<%  unless @tasks_to_me.blank?%>
+<H4>Assigned to Me</H4>
+
+    <table>
+      <% @tasks_to_me.each do |task| %>
+          <tr>
+            <th><%= task.title %></th>
+            <td><%= link_to task.title, project_task_path(@project, task) %></td>
+            <td>Assigned to: <%= task.developer.email %></td>
+            <td><%= link_to 'Show', project_task_path(@project, task) %></td>
+            <td><%= link_to 'Edit', edit_project_task_path(@project, task) %></td>
+          </tr>
+      <% end %>
+      <tr>
+        <td>
+          <hr>
+          <hr>
+        </td>
+      </tr>
+    </table>
+ <% end %>
+<%  unless @tasks_by_me.blank?%>
+<H4>Assigned by Me</H4>
+<table>
+  <% for task in @tasks_by_me %>
+      <tr>
+        <th><%= task.title %></th>
+        <td><%= link_to task.title, project_task_path(@project, task) %></td>
+        <td>Assigned to: <%= task.developer.email if task.developer.present? %></td>
+        <td><%= link_to 'Show', project_task_path(@project, task) %></td>
+        <td><%= link_to 'Edit', edit_project_task_path(@project, task) %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <td>
+      <hr>
+    </td>
+  </tr>
+</table>
+<% end %>
+<table>
+  <tr>
+    <td><%= link_to 'New Task', new_project_task_path(params[:id]), :class => 'btn btn-primary' %></td>
+
+  </tr>
+</table>

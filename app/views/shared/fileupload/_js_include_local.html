@@ -1,0 +1,151 @@
+<!-- The basic File Upload plugin -->
+<script src="/javascripts/jquery-file-upload/js/jquery.fileupload.js"></script>
+
+<!-- The File Upload user interface plugin -->
+<script src="/javascripts/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+
+<!-- The main application script -->
+<!-- 
+<div id="modal-box">
+    <a href="#" id="modal-x" onclick="javascript: Modal.hide(null, false, true); Event.stop(event); return false;"></a>
+    <h2 id="modal-title" style="">
+        <div><img class="sprite sprite_web s_web_upload_32 modal-h-img" src="/static/images/icons/icon_spacer.gif">Upload to 'Dropbox'</div>
+    </h2>
+    <div id="modal-content" style="height: auto;">
+        <div class="wit_group" name="basic-upload-modal">
+            <div style="" id="basic-upload-modal">
+                <form onsubmit="javascript: return Upload.grabURL();" method="post" novalidate="novalidate" action="https://dl-web.dropbox.com/upload" id="basic-upload-form" enctype="multipart/form-data">
+                    <input type="hidden" name="t" value="UkSx_qYgE8nK_2cDPJemb11T"><input type="hidden" name="plain" value="yes"><input type="hidden" class="dest-folder" value="" name="dest">
+                    <input type="file" id="file-box" name="file" size="1" style="top: 159px; left: 425px;">
+                    <input type="hidden" id="mtime" value="0" name="mtime">
+                    <div id="basic-upload-desc">
+                        Choose a file to upload to the folder <span class="basic-upload-foldername">'Dropbox'</span>. The basic uploader can only upload one file at a time.
+                    </div>
+                    <div style="display: none;" id="basic-upload-status">
+                        <div class="file-info">
+                            <span class="icon"></span>
+                            <span class="file-desc"></span>
+                        </div>
+                        <div class="status">
+                            <img src="https://dt8kf6553cww8.cloudfront.net/static/images/icons/ajax-loading-small-vfl3Wt7C_.gif">
+                        </div>
+                    </div>
+                    <div style="text-align: left;" id="basic-upload-buttons" class="modal-buttons">
+                        <span id="enhanced-upload-toggle" class="uploader-footer-text">Uploading multiple files? Try our 
+                            <a class="enhanced-link">enhanced uploader</a>.
+                        </span>
+                        <div style="float: right;"><input type="button" id="basic-choose-button" value="Choose a file" class="freshbutton-blue">
+                            <input type="button" class="freshbutton" value="Cancel" onclick="Modal.hide();">
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; display: none;" id="basic-uploading-message" class="uploader-footer-text">This may take a while depending on the size of the file.</div>
+                    <div class="clear"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+<script>
+
+    $(function () {
+        'use strict';
+
+        handleUploadButtons();        
+        /*-----------check or uncheck all delete checkbox--------------*/
+        $('.select-all-checkbox-for-delete').change(function () {
+            if ($(this).is(':checked')) {
+                $('.check-for-delete').prop('checked', true);
+            } else {
+                $('.check-for-delete').prop('checked', false);
+            }
+        });//end of check all or uncheck all
+
+        /*---------------------for delete sheet------------------------*/
+        $(".sheet-delete-btn").click(function (event) {
+            event.preventDefault();
+
+            var $this = $(this);
+            $.ajax({
+                type:'DELETE',
+                url:'/sheets/' + $this.data("sheet-id") + '/delete_sheet',
+                success:function (text) {
+                    $this.parents("tr").remove();
+                }//end of success function
+            });//end of ajax
+
+        });//end of delete button
+
+
+        // $(".add-files-upload").click(function (event) {
+        //    $("#uploadSheetsModal").modal('hide');
+        //     $('.btn.fileinput-button').trigger('click'); 
+
+        // });
+        // $('.btn.fileinput-button').click(function(){
+        //     alert("saaa")
+        // });        
+        /*-------------------delete all selected sheets-----------------*/
+
+        $(".btn.btn-danger.delete.delete-selected").click(function (event) {
+
+            $(".check-for-delete").each(function (index) {
+                if ($(this).is(':checked')) {
+                    var $this = $(this);
+                    $.ajax({
+                        type:'DELETE',
+                        url:'/sheets/' + $this.data("sheet-id") + '/delete_sheet',
+                        success:function (text) {
+                            $this.parents("tr").remove();
+                        }//end of success function
+                    });//end of ajax
+                }
+            });
+        });//end of delete all selected sheets
+
+        // Initialize the jQuery File Upload widget:
+        if ($("#basic_uploader_sheets").val() == "false") {
+            $('#fileupload').fileupload({
+                sequentialUploads:true
+            });
+        } else {
+            $('#fileupload').addClass("zipUploads");
+            $('#fileupload').fileupload(
+                    {
+                        maxNumberOfFiles:1,
+                        acceptFileTypes:/(\.|\/)(zip)$/i,
+                        dataType:'json',
+                        url:'/exams/' + $("#exam_id").val() + '/sheets/zip_files_upload',
+                        type:'POST'
+                    }
+            );
+        }
+
+        $('#fileupload').bind('fileuploadchange', function (e, data) {
+            $(".hide-when-no-file").show();
+        });
+
+        $('#fileupload').bind('fileuploadstopped', function (e) {
+            
+            $('#verify_sheets').removeClass('disabled');
+            var origin = window.location.origin;
+            $('#verify_sheets').attr('href', origin + '/exams/' + $("#exam_id").val() + '/sheets');
+        });
+
+
+        $('#fileupload.zipUploads').bind('fileuploadstopped', function (e) {
+            var origin = window.location.origin;
+            window.location.href = origin + '/exams/' + $("#exam_id").val() + '/sheets/new?basic_uploader=false';
+        });
+    });
+
+    function handleUploadButtons(){
+        if ($(".files tr").length == 0){
+            $(".hide-when-no-file").hide();
+        }else{
+            $(".hide-when-no-file").show();
+        }
+    }
+</script>
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+<!--[if gte IE 8]>
+<script src="/javascripts/jquery-file-upload/js/cors/jquery.xdr-transport.js"></script><![endif]-->

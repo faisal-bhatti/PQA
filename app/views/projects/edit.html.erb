@@ -1,0 +1,21 @@
+<h1>Edit Project</h1>
+  <%#TODO move to partial %>
+<%= form_for(@project) do |f| %>
+    <div>
+      <b>Name</b><br/>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <b>Description</b><br/>
+      <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.submit "Update" %>
+    </div>
+<% end %>
+
+<%= link_to 'Show', @project %> |
+<%= link_to 'Back', projects_path %>
+

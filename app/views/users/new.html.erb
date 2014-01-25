@@ -1,0 +1,45 @@
+<script>
+  $(document).ready(function(){
+      $('.carousel').carousel({
+          interval: 5000
+      });
+  });
+</script>
+
+<div class="row-fluid">
+  <div class="span8">
+  <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="active item"><%= image_tag "init11.jpg", :class => "user-image-border margin-left-corsel" %></div>
+      <div class="item"><%= image_tag "init123.jpg", :class => "user-image-border margin-left-corsel" %></div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>
+  </div>
+  <%= form_for @user, :html => {:class => 'form-horizontal  well span4'} do |user| %>
+      <fieldset>
+        <legend>Sign up</legend>
+        <%= render :partial => 'attribute_text_well_div', :locals => {:attribute => 'email', :model => user, :object => @user, :place_holder => 'Email Adress', :muted => "We don't spam or sell your email address.", :ex_class => ""} %>
+        <%= render :partial => 'attribute_select_well_div', :locals => {:attribute => 'user_type', :model => user, :object => @user, :place_holder => 'Type', :muted => "Are you developer QA or Manager", :ex_class => ""} %>
+
+        <%= render :partial => 'attribute_password_strength_div', :locals => {:attribute => 'password', :model => user, :object => @user, :place_holder => 'Password'} %>
+        <%= render :partial => 'attribute_password_well_div', :locals => {:attribute => 'password_confirmation', :model => user, :object => @user, :place_holder => 'Retype Password'} %>
+        <p class="muted">
+          <small>By clicking on "Create an account" below, you are agreeing to the
+            <a href="http://help.github.com/terms/" target="_blank">Terms of Service</a> and the
+            <a href="http://help.github.com/privacy/" target="_blank">Privacy Policy</a>.
+          </small>
+        </p>
+      </fieldset>
+      <%= content_tag(:div, "", :class => "form-actions") do %>
+          <%= user.submit "Create an Account", :class => 'btn btn-primary' %>
+      <% end %>
+  <% end %>
+</div>

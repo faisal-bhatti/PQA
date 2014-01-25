@@ -1,0 +1,12 @@
+<div class="control-group <% if object.errors[attribute].present? %>error<% end %>">
+	<%= model.label attribute, place_holder, :for => "#{object.class.name.underscore}_#{attribute}", :class => "control-label" %>
+	<%= content_tag(:div, ""  , :class => "controls error-holder" ) do %>
+	<% if ex_class.present? %>
+		<%= model.number_field attribute, :placeholder => place_holder, :class => ex_class %>
+	<% else %>
+		<%= model.number_field attribute, :placeholder => place_holder %>
+	<% end %>
+	<% if muted.present? %><p class="muted"><small><%= muted %></small></p><% end %>
+	<span class="help-inline error-float"><%= object.errors[attribute].first%></span>
+	<% end %>
+</div>

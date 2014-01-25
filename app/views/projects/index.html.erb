@@ -1,0 +1,115 @@
+<% if current_user.user_type != "manager" %>
+<%- model_class = Project -%>
+<div class="modal-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%= model_class.human_attribute_name(:description) %></th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% for project in @projects %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.description %></td>
+        <td>
+            <%= link_to t('.show', :default => t("helpers.links.show")),
+                    project_path(project), :class => 'btn btn-mini btn-warning' %>
+            <%= link_to 'New Bug', new_project_task_path(project), :class => "btn btn-mini btn-success" %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<% else %>
+    <%= link_to 'New Project', new_project_path, :class => 'btn btn-primary' %>
+    <h1><%=t '.title', :default => "Manager View" %></h1>
+    <%- model_class = Project -%>
+    <h2>Projects</h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:description) %></th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% for project in @projects %>
+          <tr>
+            <td><%= project.name %></td>
+            <td><%= project.description %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_project_path(project), :class => 'btn btn-mini' %>
+              <%= link_to t('.show', :default => t("helpers.links.show")),
+                          project_path(project), :class => 'btn btn-mini btn-warning' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          project_path(project),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+              <%= link_to 'New Bug', new_project_task_path(project), :class => "btn btn-mini btn-success" %>
+            </td>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%- model_class = User -%>
+    <h2>Employees</h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:email) %></th>
+        <th><%= model_class.human_attribute_name(:user_type) %></th>
+        <th>Join Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% for user in @users %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.user_type %></td>
+            <td><%= user.created_at %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%- model_class = Task -%>
+    <h2>Tasks</h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th><%= model_class.human_attribute_name(:status) %></th>
+        <th>In project</th>
+        <th><%= model_class.human_attribute_name(:developer_id) %></th>
+        <th><%= model_class.human_attribute_name(:creator_id) %></th>
+        <th>Join Date</th>
+        <th>Last Update Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% for task in @tasks %>
+          <tr>
+            <td><%= task.title %></td>
+            <td><%= task.status %></td>
+            <td><%= task.project.name if task.project.present? %></td>
+            <td><%= task.developer.email if task.developer.present? %></td>
+            <td><%= task.creator.email %></td>
+            <td><%= task.created_at %></td>
+            <td><%= task.updated_at %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% end %>

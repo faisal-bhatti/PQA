@@ -1,0 +1,19 @@
+<h3><%= link_to "Projects", projects_path %> >> <%= link_to @project.name, project_path(@project) %> >> Create Task</h3>
+
+<%= form_for @task, :url => project_tasks_path(@project), :html => { :class => 'form-horizontal  well'  } do |task| %>
+    <fieldset>
+      <legend>New Task</legend>
+
+      <%= render :partial => 'shared/attribute_text_div', :locals => { :attribute => 'title', :model => task, :object =>@task , :place_holder => 'Title', :muted => "", :ex_class => "" } %>
+      <%= render :partial => 'shared/attribute_file_div', :locals => { :attribute => 'image', :model => task, :object => @task, :place_holder => 'Screen Shot', :muted => "", :ex_class => "" } %>
+      <%= render :partial => 'shared/attribute_select_div', :locals => { :attribute => 'task_type', :model => task, :object => @task, :place_holder => 'Task Type', :options => @task.task_types_list, :muted => "" } %>
+      <%= render :partial => 'shared/attribute_select_div', :locals => { :attribute => 'status', :model => task, :object => @task, :place_holder => 'Task Status', :options => @task.task_status_list, :muted => "" } %>
+      <%= render :partial => 'shared/attribute_select_div', :locals => { :attribute => 'developer_id', :model => task, :object => @task, :place_holder => 'Assign To', :options => @developers, :muted => "" } %>
+
+      <%= render :partial => 'shared/attribute_textarea_div', :locals => { :attribute => 'description', :model => task, :object => @task, :place_holder => 'Description', :muted => "", :ex_class => "" } %>
+
+      <%= content_tag(:div, ""  , :class => "form-actions" ) do %>
+          <%= task.submit :class => 'btn btn-primary' %>
+      <% end %>
+    </fieldset>
+<% end %>

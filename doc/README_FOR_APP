@@ -1,0 +1,36 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+
+<!--<style>-->
+/*body {*/
+  /*background: #ededed;*/
+  /*width: 900px;*/
+  /*margin: 30px auto;*/
+  /*color: #0f0f0f0f;*/
+  /*text-align: left;*/
+  /*font-family: arial;*/
+/*}*/
+/*p {*/
+  /*margin: 0 0 2em;*/
+/*}*/
+/*h1 {*/
+  /*margin: 0;*/
+/*}*/
+/*a {*/
+  /*color: #339;*/
+  /*text-decoration: none;*/
+/*}*/
+/*a:hover {*/
+  /*text-decoration: underline;*/
+/*}*/
+/*div {*/
+  /*padding: 20px 0;*/
+  /*border-bottom: solid 1px #ccc;*/
+/*}*/
+/*table tr td*/
+/*{*/
+  /*padding: 5px 10px 5px 10px;*/
+/*}*/
+<!--</style>-->

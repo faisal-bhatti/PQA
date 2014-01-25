@@ -1,0 +1,19 @@
+<div id="edit_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit  <%= object %>" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="Edit object">Edit <%= object %></h3>
+  </div>
+
+  <div class="modal-body">
+    <%= form_for @object, :method => method, :remote => decide, :html => {:class => 'form-horizontal well'} do |object| %>
+        <div class="object_errors_at_update"></div>
+        <fieldset>
+          <%= render :partial => 'shared/attribute_text_div', :locals => {:attribute => edittable, :model => object, :object => @object, :place_holder => edittable.capitalize, :muted => "", :ex_class => "input-bootstrap-model"} %>
+        </fieldset>
+        <div class="modal-footer">
+          <%= object.submit "Save Changes", :class => 'btn btn-primary' %>
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    <% end %>
+  </div>
+</div>

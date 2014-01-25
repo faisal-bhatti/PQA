@@ -1,0 +1,52 @@
+/*               <script>
+  $(document).ready(function(){
+      $('.carousel').carousel({
+          interval: 5000
+      });
+  });
+</script>
+
+<div class="row-fluid">
+  <div class="span8">
+  <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="active item"><%= image_tag "init11.jpg", :class => "user-image-border margin-left-corsel" %></div>
+      <div class="item"><%= image_tag "init123.jpg", :class => "user-image-border margin-left-corsel" %></div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>
+  </div>
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+.navbar-static-top {
+    margin-bottom: 30px !important;
+}
+
+.user-image-border{
+    border: 5px solid grey;
+}
+.margin-left-corsel{
+    margin-left: 92px;
+}
+
+.learn-image-page{
+    margin: 30px 30px 30px 30px;
+    margin-left: 250px;
+}

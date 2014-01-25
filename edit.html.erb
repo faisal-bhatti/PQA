@@ -1,0 +1,62 @@
+    <%= hidden_field_tag 'update_edit_user', params[:update].present? ? params[:update] : "profile"  %>
+
+<div class="tab-left">
+  <ul class="well nav nav-list span2">
+    <li id="profile-form-tab"><a href="#profile-form" data-toggle="tab">Profile</a></li>
+    <li id="account-form-tab"><a href="#account-form" data-toggle="tab">Account Setting</a></li>
+  </ul>
+  <div class="tab-content span6">
+    <div class="active tab-pane" id="profile-form">
+      <%= form_for @profile, :html => { :class => 'form-horizontal  well'  } do |profile| %>
+        <fieldset>
+          <legend>Profile</legend>
+          <div class="control-group" >
+            <%= profile.label :fullname, "Name", :for => 'profile_fullname', :class => "control-label" %>
+            <div class="input-prepend controls" style="display: block">
+              <%= profile.select(:initial, options_for_select(PROFILE_CONSTANTS::INITIALS, :selected => @profile.initial), {}, :class => "btn dropdown-toggle span3", :data => { :toggle => 'dropdown' }) %>
+              <%= profile.text_field :fullname, :placeholder => "Name", :class => "span5" %>
+            </div>
+          </div>
+          <%= render :partial => 'shared/attribute_text_div', :locals => { :attribute => 'url', :model => profile, :object => @profile, :place_holder => 'Url', :muted => "", :ex_class => "" } %>
+          <%= render :partial => 'shared/attribute_select_div', :locals => { :attribute => 'country', :model => profile, :object => @profile, :place_holder => 'Country', :options => PROFILE_CONSTANTS::COUNTRIES, :muted => "" } %>
+          <%= render :partial => 'shared/attribute_text_div', :locals => { :attribute => 'institution', :model => profile, :object => @profile, :place_holder => 'Institution', :muted => "", :ex_class => "" } %>
+          <%= render :partial => 'shared/attribute_text_div', :locals => { :attribute => 'designation', :model => profile, :object => @profile, :place_holder => 'Designation', :muted => "", :ex_class => "" } %>
+          <div class="control-group" >
+            <%= profile.label :photo, "#{image_tag current_user.get_profile_photo}".html_safe, :for => 'profile_fullname', :class => "control-label" %>
+            <div class="controls">
+              <%= profile.file_field :photo %>
+            </div>
+          </div>
+          <div class="control-group" >
+            <%= profile.label :show_help, "Show Help", :class => "control-label" %>
+            <div class='controls'>
+              <%= profile.check_box :show_help %>
+            </div>
+          </div>
+  <%#*<div class="control-group" >%>
+
+  <%#= profile.check_box :show_help %>
+  <%#= profile.label :show_help, "Show help" %>
+  <%#*</div>%>
+
+          <%= content_tag(:div, ""  , :class => "form-actions" ) do %>
+            <%= profile.submit :class => 'btn btn-primary' %>
+          <% end %>
+        </fieldset>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="account-form">
+      <%= form_for @user, :html => { :class => 'form-horizontal  well'  } do |user| %>
+        <fieldset>
+          <legend>Account Setting</legend>
+          <%= render :partial => 'shared/attribute_text_div', :locals => { :attribute => 'email', :model => user, :object => @user, :place_holder => 'Email Adress', :muted => "We don't spam or sell your email address.", :ex_class => "" } %>
+          <%= render :partial => 'shared/attribute_password_strength_div', :locals => { :attribute => 'password', :model => user, :object => @user, :place_holder => 'Password' } %>
+          <%= render :partial => 'shared/attribute_password_div', :locals => { :attribute => 'password_confirmation', :model => user, :object => @user, :place_holder => 'Retype Password' }  %>
+          <%= content_tag(:div, ""  , :class => "form-actions" ) do %>
+            <%= user.submit :class => 'btn btn-primary' %>
+          <% end %>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="control-group <% if object.errors[attribute].present? %>error<% end %>">
+  <%= model.label attribute, place_holder, :for => "#{object.class.name.underscore}_#{attribute}", :class => "control-label" %>
+  <%= content_tag(:div, ""  , :class => "controls error-holder" ) do %>
+    <%= model.select(attribute, options_for_select(options) ,{}, :class => "btn dropdown-toggle ", :data => { :toggle => 'dropdown' }) %>
+    <span class="help-inline error-float"><%= object.errors[attribute].first%></span>
+  <% end %>
+</div>

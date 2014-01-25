@@ -1,0 +1,46 @@
+<script>
+    $(document).ready(function(){
+        $('.carousel').carousel({
+            interval: 5000
+        });
+    });
+</script>
+
+<div class="row-fluid">
+  <div class="span8">
+    <div id="myCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item"><%= image_tag "init11.jpg", :class => "user-image-border margin-left-corsel" %></div>
+        <div class="item"><%= image_tag "init123.jpg", :class => "user-image-border margin-left-corsel" %></div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+  </div>
+<%= form_for :signin, { :url=> sessions_path, :html => { :class => 'well span4' }} do |user| %>
+  <fieldset>
+    <legend>Sign in</legend>
+    <%= content_tag(:div, ""  , :class => "control-group" ) do %>
+      <%= user.label :email, "Email Adress", :for => 'signin_email' %>
+      <%= user.text_field :email, :placeholder => 'Email', :class => "input-block-level"  %>
+    <% end %>
+    <%= content_tag(:div, ""  , :class => "control-group" ) do %>
+      <%= user.password_field :password, :placeholder => 'Password', :class => "input-block-level"  %>
+    <% end %>
+
+    <label class='control-group'>
+      <%= check_box_tag(:remember_me, 1, params[:remember_me])%> Remember me
+    </label>
+    <%= content_tag(:div, ""  , :class => "form-actions" ) do %>
+      <%= user.submit "Sign me In", :class => 'btn btn-primary' %>
+    <% end %>
+  </fieldset>
+<% end %>
+
+</div>

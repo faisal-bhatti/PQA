@@ -1,0 +1,9 @@
+<div class="control-group <% if object.errors[attribute].present? %>error<% end %>">
+  <%= model.label attribute, place_holder, :for => "#{object.class.name.underscore}_#{attribute}" %>
+  <%= model.text_field attribute, :placeholder => place_holder, :class => "input-block-level #{ex_class}" %>
+  <% if muted.present? %><p class="muted"><small><%= muted %></small></p><% end %>
+    
+  <% if object.errors[attribute].present? %>
+    <span class="help-inline"><%= object.errors[attribute].first%></span>
+  <% end %>
+</div>
