@@ -5,11 +5,18 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 # gem 'mysql2', '~> 0.3.12'
 # Platform specific gems
 platforms :ruby do
   gem 'json'
+end
+
+# gem 'pg', '~> 0.17.1'
+gem  'mysql2'
+group :production do
+	
+	gem 'pg', '~> 0.17.1'
 end
 
 # Gems used only for assets and not required
