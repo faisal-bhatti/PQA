@@ -61,7 +61,8 @@ class TasksController < ApplicationController
       flash[:notice] = 'Task was successfully created and emailed to assignee.'
       redirect_to(project_path(@project))
     else
-      render :action => "new"
+      # render :action => "new"
+      redirect_to root_url
     end
   end
 
