@@ -3,16 +3,16 @@
 <%= form_for(@project) do |f| %>
     <div>
       <b>Name</b><br/>
-      <%= f.text_field :name %>
+      <%= f.text_field :name,style: "width:363px;" %>
     </div>
 
     <div>
       <b>Description</b><br/>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, rows: 5,style: "width:363px;" %>
     </div>
 
     <div>
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: "btn btn-primary" %>
     </div>
 <% end %>
 

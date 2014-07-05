@@ -8,7 +8,7 @@
         <td><%= task.description %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_project_path(task) %></td>
-
+        <td><%= link_to 'destroy',destroy_project_path(task)</td>
       </tr>
   <% end %>
 </table>

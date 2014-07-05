@@ -4,14 +4,16 @@
 <%= form_for @project do |f| %>
   <p>
     name:<br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name ,style: "width:363px;" , placeholder: "project name"%>
   </p>
 
   <p>
     description:<br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description,rows: 5,style: "width:363px;" , placeholder: "Write description here ..."%>
   </p>
   <p>
-    <%= submit_tag %>
+    <%#= submit_tag %>
+    <%= f.submit "submit", class: "btn btn-primary" %>
+    <%= link_to 'Back', root_url, :class => 'btn' %>
   </p>
 <% end %>

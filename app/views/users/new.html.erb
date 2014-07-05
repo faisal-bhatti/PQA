@@ -26,8 +26,13 @@
   <%= form_for @user, :html => {:class => 'form-horizontal  well span4'} do |user| %>
       <fieldset>
         <legend>Sign up</legend>
+        <%= render :partial => 'attribute_text_well_div', :locals => {:attribute => 'name', :model => user, :object => @user, :place_holder => 'Name', :muted => "", :ex_class => ""} %>
+
         <%= render :partial => 'attribute_text_well_div', :locals => {:attribute => 'email', :model => user, :object => @user, :place_holder => 'Email Adress', :muted => "We don't spam or sell your email address.", :ex_class => ""} %>
-        <%= render :partial => 'attribute_select_well_div', :locals => {:attribute => 'user_type', :model => user, :object => @user, :place_holder => 'Type', :muted => "Are you developer QA or Manager", :ex_class => ""} %>
+
+        <%= render :partial => 'attribute_text_well_div', :locals => {:attribute => 'phone', :model => user, :object => @user, :place_holder => 'Contact', :muted => "", :ex_class => ""} %>
+
+        <%= render :partial => 'attribute_select_well_div', :locals => {:attribute => 'user_type', :model => user, :object => @user, :place_holder => 'Type', :muted => "Are you developer QA or Manager?", :ex_class => ""} %>
 
         <%= render :partial => 'attribute_password_strength_div', :locals => {:attribute => 'password', :model => user, :object => @user, :place_holder => 'Password'} %>
         <%= render :partial => 'attribute_password_well_div', :locals => {:attribute => 'password_confirmation', :model => user, :object => @user, :place_holder => 'Retype Password'} %>

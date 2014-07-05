@@ -1,0 +1,218 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"th",
+				"thead	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/madiha/projects/abc/app/models/shop.rb",
+		"/home/madiha/projects/abc/app/models/student.rb",
+		"/home/madiha/projects/abc/config.ru",
+		"/home/madiha/projects/abc/script/rails",
+		"/home/madiha/projects/abc/test/fixtures/customers.yml",
+		"/home/madiha/projects/abc/config/routes.rb",
+		"/home/madiha/projects/abc/config/database.yml",
+		"/home/madiha/projects/abc/app/assets/javascripts/phs.js.coffee",
+		"/home/madiha/projects/abc/app/assets/stylesheets/phs.css.scss",
+		"/home/madiha/projects/abc/app/controllers/customers_controller.rb",
+		"/home/madiha/projects/abc/test/fixtures/rolls.yml",
+		"/home/madiha/projects/abc/test/fixtures/pays.yml",
+		"/home/madiha/projects/abc/app/views/phs/index.html.erb",
+		"/home/madiha/projects/abc/config/environment.rb",
+		"/home/madiha/projects/abc/db/schema.rb",
+		"/home/madiha/projects/abc/config/application.rb",
+		"/home/madiha/projects/abc/db/development.sqlite3",
+		"/home/madiha/projects/abc/db/migrate/20131228151023_create_shops.rb",
+		"/home/madiha/projects/abc/db/migrate/20140129064020_create_phs.rb",
+		"/home/madiha/projects/abc/test/fixtures/books.yml",
+		"/home/madiha/projects/abc/doc/README_FOR_APP",
+		"/home/madiha/projects/abc/config/boot.rb",
+		"/home/madiha/projects/abc/test/fixtures/.gitkeep",
+		"/home/madiha/projects/abc/db/migrate/20131228153926_create_customers.rb",
+		"/home/madiha/projects/abc/app/assets/images/rails.png",
+		"/home/madiha/projects/abc/Gemfile.lock",
+		"/home/madiha/projects/abc/db/test.sqlite3",
+		"/home/madiha/projects/abc/app/models/bscs.rb",
+		"/home/madiha/projects/abc/db/migrate/20140104182451_create_marks.rb",
+		"/home/madiha/projects/abc/README.rdoc",
+		"/home/madiha/projects/abc/Rakefile",
+		"/home/madiha/Desktop/website/frame.html",
+		"/home/madiha/projects/abc/app/views/customers/index.html.erb",
+		"/home/madiha/projects/abc/db/migrate/20140104173742_create_model_students.rb",
+		"/home/madiha/projects/abc/app/models/marks.rb",
+		"/home/madiha/projects/abc/log/development.log",
+		"/home/madiha/projects/abc/db/seeds.rb",
+		"/home/madiha/projects/abc/config/locales/en.yml",
+		"/home/madiha/projects/abc/app/models/.gitkeep",
+		"/home/madiha/projects/abc/Gemfile",
+		"/home/madiha/projects/abc/app/views/layouts/application.html.erb",
+		"/home/madiha/projects/abc/app/assets/javascripts/application.js",
+		"/home/madiha/projects/abc/app/assets/stylesheets/application.css",
+		"/home/madiha/projects/MCQ-portal/Gemfile",
+		"/home/madiha/projects/abc/app/models/customer.rb",
+		"/home/madiha/projects/abc/db/migrate/20131228154551_addfields_to_customer.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"rdoc"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "glyphicons-halflings.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"sc",
+				"db/schema.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"data",
+				"config/database.yml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 248.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

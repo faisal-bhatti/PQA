@@ -1,7 +1,7 @@
 <div class="control-group <% if object.errors[attribute].present? %>error<% end %>">
-  <%= model.label attribute, place_holder, :for => "#{object.class.name.underscore}_#{attribute}", :class => "control-label" %>
+  <%= model.label attribute, :for => "#{object.class.name.underscore}_#{attribute}", :class => "control-label" %>
   <%= content_tag(:div, ""  , :class => "controls error-holder" ) do %>
-      <%= model.text_area attribute, rows: 8, :placeholder => place_holder, :class => ex_class %>
+      <%= model.text_area attribute, rows: 8, :placeholder => place_holder, :class => ex_class, :style=>"width:363px;" %>
       <% if muted.present? %><p class="muted"><small><%= muted %></small></p><% end %>
       <span class="help-inline error-float"><%= object.errors[attribute].first%></span>
   <% end %>

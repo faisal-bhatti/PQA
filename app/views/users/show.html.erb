@@ -1,0 +1,42 @@
+<h3 class="alert alert-success">User Details</h3>
+<div>
+	<table class="table table-striped">
+		<tr>
+			<td>Name:</td>
+			<td><%= @user.name %></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<td>Phone:</td>
+			<td><%= @user.phone %></td>
+		</tr>
+		
+	</table>
+</div>
+<div>
+	<table class="table table-striped">
+			<thead>
+				<th>Project</th>
+				<th>Task Assign</th>
+			</thead>
+			<% Project.all.each do |proj| %>
+			
+				<% tasks = Task.where(project_id: proj.id, developer_id: @user.id)%>
+				<tr>
+					<td><%= proj.name || "No Name" %></td>
+					<td>
+						<% tasks && tasks.each do |task| %>
+							<%= task.title %>,
+						<% end %>
+					</td>
+				</tr>
+				
+			<% end %>
+		
+	</table>
+</div>
+
+<%= link_to 'Back', root_url, :class => 'btn btn-primary' %>

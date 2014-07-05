@@ -6,7 +6,7 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'mysql2'
+# gem 'mysql2', '~> 0.3.12'
 # Platform specific gems
 platforms :ruby do
   gem 'json'
@@ -24,9 +24,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'twilio-ruby'
+gem 'mandrill-api', "~> 1.0.42"
+gem 'mandrill_mailer'
 gem 'jquery-rails'
 gem 'sorcery'
-
+gem 'activerecord'
 gem 'carrierwave'
 
 # To use ActiveModel has_secure_password

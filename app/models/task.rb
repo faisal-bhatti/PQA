@@ -13,7 +13,7 @@ class Task < ActiveRecord::Base
   end
 
   def task_status_list
-    task_types = ['New', 'Started', 'Resolced']
+    task_types = ['New', 'Started', 'Resolved']
   end
 
 

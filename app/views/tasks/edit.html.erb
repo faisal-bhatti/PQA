@@ -2,7 +2,7 @@
 
 <%= form_for @task, :url => project_task_path(@project,@task), :html => { :class => 'form-horizontal  well'  } do |task| %>
     <fieldset>
-      <legend>New Task</legend>
+      <legend class="alert alert-success" style="width:95%;">New Task</legend>
 
       <%= render :partial => 'shared/attribute_text_div', :locals => { :attribute => 'title', :model => task, :object =>@task , :place_holder => 'Title', :muted => "", :ex_class => "" } %>
       <%= render :partial => 'shared/attribute_file_div', :locals => { :attribute => 'image', :model => task, :object => @task, :place_holder => 'Screen Shot', :muted => "", :ex_class => "" } %>
@@ -17,3 +17,4 @@
       <% end %>
     </fieldset>
 <% end %>
+<%= link_to 'Back', root_url, :class => 'btn btn-primary' %>
