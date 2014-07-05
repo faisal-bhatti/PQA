@@ -13,9 +13,12 @@ platforms :ruby do
 end
 
 # gem 'pg', '~> 0.17.1'
-gem  'mysql2'
+
+group :development do
+	gem  'mysql2'
+end
 group :production do
-	
+	gem  'mysql2'
 	gem 'pg', '~> 0.17.1'
 end
 
@@ -40,7 +43,7 @@ gem 'activerecord'
 gem 'carrierwave'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
