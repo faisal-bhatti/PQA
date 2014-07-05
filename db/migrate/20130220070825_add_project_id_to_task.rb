@@ -1,5 +1,4 @@
-
--class AddProjectIdToTask < ActiveRecord::Migration
+class AddProjectIdToTask < ActiveRecord::Migration
   def self.up
     add_column :tasks, :project_id, :integer
   end
