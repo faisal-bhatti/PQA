@@ -78,14 +78,6 @@ class TasksController < ApplicationController
   end
 
 
-
-
-
-
-
-
-
-
   def update
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
