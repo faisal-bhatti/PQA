@@ -1,6 +1,6 @@
 <div class="control-group <% if object.errors[attribute].present? %>error<% end %>">
   <%= model.label attribute, place_holder, :for => "#{object.class.name.underscore}_#{attribute}" %>
-  <%= model.select(attribute, options_for_select([['developer','developer'],['QA','QA'],['manager','manager']]) ,{}, :class => "btn dropdown-toggle input-block-level #{ex_class}", :data => { :toggle => 'dropdown' }) %>
+  <%= model.select(attribute, options_for_select([['Developer','developer'],['QA','QA'],['Manager','manager']]) ,{}, :class => "btn dropdown-toggle input-block-level #{ex_class}", :data => { :toggle => 'dropdown' }) %>
   <% if muted.present? %><p class="muted"><small><%= muted %></small></p><% end %>
 
   <% if object.errors[attribute].present? %>
