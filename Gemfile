@@ -5,7 +5,6 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'sqlite3'
 # gem 'mysql2', '~> 0.3.12'
 # Platform specific gems
 platforms :ruby do
@@ -15,6 +14,7 @@ end
 # gem 'pg', '~> 0.17.1'
 
 group :development do
+  gem 'sqlite3'
 	gem  'mysql2'
 end
 group :production do

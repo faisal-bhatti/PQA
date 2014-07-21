@@ -123,9 +123,6 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.9)
-    therubyracer (0.11.4)
-      libv8 (~> 3.11.8.12)
-      ref
     thor (0.19.1)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -160,6 +157,9 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sorcery
   sqlite3
+<<<<<<< HEAD
   therubyracer
+=======
+>>>>>>> 3ddf046c5c05052ed0668f6ec4b3b2f963233fef
   twilio-ruby
   uglifier (>= 1.0.3)
